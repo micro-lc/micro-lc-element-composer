@@ -8,6 +8,14 @@ const configuration = {
       "type": "element",
       "tag": "script",
       "attributes": {
+        "src": "./api/v1/microlc/configuration/lodash-test",
+        "type": "module"
+      }
+    },
+    {
+      "type": "element",
+      "tag": "script",
+      "attributes": {
         "data-stencil-namespace": "duet"
       }
     },

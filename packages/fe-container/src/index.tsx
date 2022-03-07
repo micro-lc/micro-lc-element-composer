@@ -18,7 +18,7 @@ import './public-path'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Composer from './components/Composer'
+import ElementsContainer from './components/ElementsContainer'
 
 const CONTAINER_ID = '#microlc-element-composer'
 
@@ -27,13 +27,9 @@ function retrieveContainer (props: any) {
   return container ? container.querySelector(CONTAINER_ID) : document.querySelector(CONTAINER_ID)
 }
 
-function render (props: any) {
+function render (props: any = {}) {
   ReactDOM.render(
-    <Composer
-      configurationName={props.configurationName}
-      currentUser={props.currentUser}
-      headers={props.headers}
-    />,
+    <ElementsContainer {...props} container={retrieveContainer(props)} />,
     retrieveContainer(props)
   )
 }
@@ -52,6 +48,5 @@ export async function bootstrap () {
 
 // @ts-ignore
 if (!window.__POWERED_BY_QIANKUN__) {
-  const configurationName = 'microlc-element-composer'
-  render({configurationName})
+  render()
 }
